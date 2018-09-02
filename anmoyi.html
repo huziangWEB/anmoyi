@@ -1,0 +1,235 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width,initial-scale=1.0,minimum-scale=1.0,maximum-scale=1.0,user-scalable=no">
+	<meta name="apple-mobile-web-app-capable" content="yes"/>
+	<meta name="apple-mobile-web-app-status-bar-style" content="black"/>
+	<title>Document</title>
+	<link rel="stylesheet" type="text/css" href="css/css.css">
+	<link rel="stylesheet" type="text/css" href="css/jquery.range.css">
+</head>
+<body>
+<div class="wrapper">	
+	<div class="gif-img">
+		<img src="./img/xuanchi-disu.gif" width="750" height="519" />
+	</div>
+	<div class="xuanchi">
+		<input class="single-slider xuanchi-btn" value="0" style="display: none;" type="hidden">
+		<!-- <div class="xuanchi-btn">
+			<div class="xuanchi-btn-btn"></div>
+		</div> -->
+		<p class="xuanchi-p">
+			<span>停止</span>
+			<span>低速</span>
+			<span>高速</span>
+		</p>
+	</div>
+	<div class="time">
+		<img src="./img/shijian-bg.png" width="387" height="100">
+		<div class="time-xianshi">
+			<img src="./img/time-yuanshi.png" width="124" height="61">
+		</div>
+	</div>
+	<div class="kaobeijiaotuo">
+		<div class="kaobei">
+			<img src="./img/kaobei-font.png" width="35" height="81" class="kaobei-font">
+			<img src="./img/up-btn.png" width="137" height="145" class="kaobei-up-btn">
+			<img src="./img/down-btn.png" width="137" height="145" class="kaobei-down-btn">
+		</div>
+		<div class="jiaotuo">
+			<img src="./img/jiaotuo-font.png" width="36" height="80" class="jiaotuo-font">
+			<img src="./img/up-btn.png" width="137" height="145" class="jiaotuo-up-btn">
+			<img src="./img/down-btn.png" width="137" height="145" class="jiaotuo-down-btn">
+		</div>
+	</div>
+	<div class="xuanchi wendu">
+		<input class="range-slider  xuanchi-btn" value="0" style="display: none;" type="hidden">
+		<!-- <div class="xuanchi-btn">
+			<img src="./img/jiare-btn.png" width="143" height="147" />
+		</div> -->
+		<p class="xuanchi-p">
+			<span>停止</span>
+			<span>低温</span>
+			<span>高温</span>
+		</p>
+	</div>
+	<div class="kaiguan">
+		<input class="kaiguan-slider  xuanchi-btn" value="0" style="display: none;" type="hidden">
+		<!-- <div class="kaiguan-btn">
+			<img src="./img/kaiguan-btn.png" width="108" height="118" />
+		</div> -->
+		<p class="kaiguan-p">
+			<span class="kaiji-font">开机</span>
+			<span class="guanji-font">关机</span>
+		</p>
+	</div>
+</div>
+<script type="text/javascript" src="js/jquery.min.js"></script>
+<script src="js/jquery.range.js"></script>
+<script>
+$(function(){
+
+	$('.single-slider').jRange({
+
+		from: 0,
+
+		to: 2,
+
+		step: 1,
+
+		scale: [0,1,2],
+
+		format: '%s',
+
+		width: '100%',
+
+		showLabels: true,
+
+		showScale: true,
+		snap: true,
+		ondragend: function(){
+			var aa = $(".single-slider").val();
+			if(aa="0"){
+				$('.pointer').animate({left:'-0.7rem'});
+			}
+			if(aa="1"){
+				$('.pointer').animate({left:'1.6rem'});
+			}
+			if(aa="2"){
+				$('.pointer').animate({left:'3.6rem'});
+			}
+		},
+		onstatechange: function(){
+
+		},
+		onbarclicked: function(){
+			alert(123)
+		}
+
+	});
+
+	$('.range-slider').jRange({
+
+		from: 0,
+
+		to: 2,
+
+		step: 1,
+
+		scale: [0,1,2],
+
+		format: '%s',
+
+		width: '100%',
+
+		showLabels: false,
+
+		showScale: false,
+		snap: true,
+		ondragend: function(){
+			var bb = $(".range-slider").val();
+			if(bb="0"){
+				$('.pointer').animate({left:'-0.7rem'});
+			}
+			if(bb="1"){
+				$('.pointer').animate({left:'1.6rem'});
+			}
+			if(bb="2"){
+				$('.pointer').animate({left:'3.6rem'});
+			}
+		},
+		onstatechange: function(){
+
+		},
+		onbarclicked: function(){
+			alert(123)
+		}
+
+	});
+	$('.kaiguan-slider').jRange({
+
+		from: 0,
+
+		to: 1,
+
+		step: 1,
+
+		scale: [0,1],
+
+		format: '%s',
+
+		width: '100%',
+
+		showLabels: true,
+
+		showScale: true,
+		snap: true,
+		ondragend: function(){
+			var aa = $(".single-slider").val();
+			if(aa="0"){
+				$('.pointer').animate({left:'-0.7rem'});
+			}
+			if(aa="1"){
+				$('.pointer').animate({left:'1.6rem'});
+			}
+			if(aa="2"){
+				$('.pointer').animate({left:'3.6rem'});
+			}
+		},
+		onstatechange: function(){
+
+		},
+		onbarclicked: function(){
+			alert(123)
+		}
+
+	});
+
+	
+
+	$("#g1").click(function(){
+
+		var aa = $(".single-slider").val();
+		$('.single-slider').jRange('setValue', 'aa');
+
+		alert(aa);
+
+	});
+
+	$("#g2").click(function(){
+
+		var aa = $(".range-slider").val();
+
+		alert(aa);
+
+	});
+
+});
+
+</script>
+<script>
+(function (doc, win) {
+	var docEl = doc.documentElement,
+	  resizeEvt = 'orientationchange' in window ? 'orientationchange' : 'resize',
+	  recalc = function () {
+		  var clientWidth = docEl.clientWidth;
+		  if (!clientWidth) return;
+           if(clientWidth>=750){
+               docEl.style.fontSize = '100px';
+           }else{
+               docEl.style.fontSize = 100 * (clientWidth / 750) + 'px';
+           }
+       };
+
+	if (!doc.addEventListener) return;
+	win.addEventListener(resizeEvt, recalc, false);
+	doc.addEventListener('DOMContentLoaded', recalc, false);
+})(document, window);
+
+$('.pointer').on('dragend', function(){
+		alert(123)
+	})
+</script>	
+</body>
+</html>
