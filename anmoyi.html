@@ -68,6 +68,18 @@
 <script type="text/javascript" src="js/jquery.min.js"></script>
 <script src="js/jquery.range.js"></script>
 <script>
+	var bluetooth = api.require('bluetooth');
+		bluetooth.connect({
+		    codeType: 'utf-8',
+		}, function(ret, err) {
+		    if (ret) {
+		        alert(JSON.stringify(ret));
+		    } else {
+		        alert(JSON.stringify(err));
+		    }
+		});
+</script>
+<script>
 $(function(){
 
 	$('.single-slider').jRange({
